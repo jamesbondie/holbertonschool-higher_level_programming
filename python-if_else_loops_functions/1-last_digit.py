@@ -2,9 +2,9 @@
 import random
 number = random.randint(-10000, 10000)
 if number < 0:
-    lastdigit = (abs(number)%10) * -1
+    lastdigit = (abs(number) % 10) * -1
 else:
-    lastdigit = number%10
+    lastdigit = number % 10
 if lastdigit > 5:
     str2 = "and is greater than 5"
 elif lastdigit == 0:
