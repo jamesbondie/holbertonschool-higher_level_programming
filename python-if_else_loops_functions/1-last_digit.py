@@ -11,4 +11,4 @@ elif lastdigit == 0:
     str2 = "and is 0"
 else:
     str2 = "and is less than 6 and not 0"
-print(f'Last digit of {number} is {lastdigit} {str2}\n')
+print(f'Last digit of {number} is {lastdigit} {str2}')
