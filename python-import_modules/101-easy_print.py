@@ -1,3 +1,2 @@
-#!/usr/bin/python3
-
-101-easy_print.py.write("#pythoniscool")
+import subprocess
+subprocess.run(["echo", "#pythoniscool\n"])
