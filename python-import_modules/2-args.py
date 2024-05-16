@@ -1,15 +1,16 @@
 #!/usr/bin/python3
 import sys
+if __name__ == '__main__':
 
-if (len(sys.argv) - 1 == 0):
-    print(f"{len(sys.argv) - 1} arguments.")
-else:
-    if (len(sys.argv) - 1 ) % 2 == 0:
-        print(f"{len(sys.argv) - 1} arguments:")
+    if (len(sys.argv) - 1 == 0):
+        print(f"{len(sys.argv) - 1} arguments.")
     else:
-        print(f"{len(sys.argv) - 1} argument:")
+        if (len(sys.argv) - 1) % 2 == 0:
+            print(f"{len(sys.argv) - 1} arguments:")
+        else:
+            print(f"{len(sys.argv) - 1} argument:")
 
-i = 1
-while ( i < len(sys.argv )):
-    print(f"{i}: {sys.argv[i]}")
-    i += 1
+    i = 1
+    while (i < len(sys.argv)):
+        print(f"{i}: {sys.argv[i]}")
+        i += 1
