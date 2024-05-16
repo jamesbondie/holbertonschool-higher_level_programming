@@ -4,7 +4,7 @@ from sys import argv
 
 if __name__ == '__main__':
     if (len(argv) - 1 != 3):
-        print("Usage: ./100-my_calculator.py <a> <operator> <b>\n")
+        print("Usage: ./100-my_calculator.py <a> <operator> <b>")
         exit(1)
     else:
         a = argv[1]
@@ -19,5 +19,5 @@ if __name__ == '__main__':
         elif b == "/":
             print(f"{a} / {c} = {div(int(a), int(c))}")
         else:
-            print("Unknown operator. Available operators: +, -, * and /\n")
+            print("Unknown operator. Available operators: +, -, * and /")
             exit(1)
