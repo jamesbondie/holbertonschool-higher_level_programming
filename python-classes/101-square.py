@@ -62,6 +62,7 @@ class Square:
         """Return a string representation of the square."""
         if self.__size == 0:
             print()
+            return
 
         lines = []
         for _ in range(self.__position[1]):
