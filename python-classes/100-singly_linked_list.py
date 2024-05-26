@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+"""This module contains singly linked list"""
+
 
 class Node:
     """Node class represents each element in the linked list."""
