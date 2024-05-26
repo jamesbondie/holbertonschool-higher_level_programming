@@ -13,7 +13,9 @@ def roman_to_int(roman_string):
             summy += rdic[lst[k]]
         else:
             summy += rdic[lst[k+1]] - rdic[lst[k]]
+            k += 1
         k += 1
-    if rdic[lst[k-1]] >= rdic[lst[k]]:
-        summy += rdic[lst[k]]
+    if k != len(roman_string):
+        if rdic[lst[k-1]] >= rdic[lst[k]]:
+            summy += rdic[lst[k]]
     return summy
