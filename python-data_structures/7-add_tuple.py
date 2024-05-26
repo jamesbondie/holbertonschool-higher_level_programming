@@ -11,12 +11,10 @@ def add_tuple(tuple_a=(), tuple_b=()):
     if len(tuple_b) > 0:
         b_0 = tuple_b[0]
     else:
-        b_0 = 0
-    
+        b_0 = 0    
     if len(tuple_b) > 1:
         b_1 = tuple_b[1]
     else:
         b_1 = 0
-    
     new_tuple = (a_0 + b_0, a_1 + b_1)
     return new_tuple
