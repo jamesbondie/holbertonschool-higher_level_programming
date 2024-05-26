@@ -26,6 +26,7 @@ class Square:
     def area(self):
         """Calculate the area of the square."""
         return self.__size ** 2
+
     def __lt__(self, other):
         """Check if this square is less than another square."""
         return self.area() < other.area()
