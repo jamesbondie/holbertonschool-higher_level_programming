@@ -9,7 +9,6 @@ def print_matrix_integer(matrix=[[]]):
                 j += 1
             else:
                 print("{:d} ".format(j), end="")
-                j +=1
+                j += 1
     if (j == 0):
         print("")
-
