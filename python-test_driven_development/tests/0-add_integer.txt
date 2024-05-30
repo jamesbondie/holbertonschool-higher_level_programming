@@ -14,6 +14,6 @@ trying:
     >>> add_integer(3, "hello")
     Traceback (most recent call last):
     TypeError: b must be an integer
-    >>> add_integer(5)
+    >>> add_integer(1.7976931348623157e+308, 1)
     Traceback (most recent call last):
-    TypeError: 
+    OverflowError
