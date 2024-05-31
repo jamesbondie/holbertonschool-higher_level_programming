@@ -1,6 +1,7 @@
 #!/usr/bin/python3
-
+"""This is our module"""
 def matrix_divided(matrix, div):
+    """This is our function"""
     for k in matrix:
         for i in k:
             if not isinstance(i, (int, float)):
