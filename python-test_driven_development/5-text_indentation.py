@@ -10,3 +10,5 @@ def text_indentation(text):
         text = text.replace(" \\", "").replace(i, i[0:1] + "\n\n")
     for i in text:
         print(i, end="")
+        if i == "." or i == ":" or i == "?":
+            print()
