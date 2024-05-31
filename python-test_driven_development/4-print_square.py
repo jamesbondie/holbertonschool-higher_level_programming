@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """This is our module"""
+
+
 def print_square(size):
     """This is our function"""
     if not isinstance(size, int):
@@ -12,4 +14,3 @@ def print_square(size):
         for k in range(size):
             print("#", end="")
         print()
-    
