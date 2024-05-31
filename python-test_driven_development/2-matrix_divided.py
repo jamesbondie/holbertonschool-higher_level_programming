@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """This is our module"""
+
+
 def matrix_divided(matrix, div):
     """This is our function"""
     typerror = "matrix must be a matrix (list of lists) of integers/floats"
