@@ -1,12 +1,13 @@
 #!/usr/bin/python3
 """This is our module"""
+
+
 def text_indentation(text):
     """This is our function"""
-    text2 = ""
-    for i in range(len(text)):
-        if text[i] == "." or text[i] == "?" or text[i] == ":":
-            text2 = text2 + text[:i]
-            text2 = text2 + ""
-        else:
-            print(text[i], end="")
-        print(text2)
+    if not isinstance(text, str):
+        raise TypeError("text must be a string")
+    y = text.replace(" \\", "")
+    listr = [". ", ": ", "? "]
+    for i in listr:
+        y = y.replace(i, i[0:1] + "\n\n")
+    print(y)
