@@ -3,10 +3,12 @@
 
 
 def text_indentation(text):
-    """This is function"""
+    """This is our function"""
     if not isinstance(text, str):
         raise TypeError("text must be a string")
-    for i in [".", "?", ":"]:
-        text = text.replace(i, i + '\n\n')
-    for i in text.split('\n'):
-        print(i.strip())
+    for i in [". ", ": ", "? "]:
+        text = text.replace("  ", "").replace(i, i[0])
+    for i in text:
+        print(i, end="")
+        if i == "." or i == ":" or i == "?":
+            print('\n')
