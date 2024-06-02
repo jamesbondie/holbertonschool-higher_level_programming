@@ -1,0 +1,9 @@
+test
+=================
+trying:
+	>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+expecting:
+	>>> BaseGeometry.integer_validator("my_int", 12)
+	Traceback (most recent call last):
+	TypeError: BaseGeometry.integer_validator() missing 1 required positional argument: 'value'
