@@ -2,7 +2,9 @@ tests
 =============
 
 trying:
-	>>> MyList.__import__('1-my_list').MyList
+	>>> MyList = __import__('1-my_list').MyList
 
 expecting:
-	>>> MyList.print_sorted(__str__)
+	>>> MyList.print_sorted([1, 4, 2, 3, 5])
+	[1, 2, 3, 4, 5]
+	[1, 2, 3, 4, 5]
