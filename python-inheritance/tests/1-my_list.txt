@@ -1,0 +1,8 @@
+tests
+=============
+
+trying:
+	>>> MyList.__import__('1-my_list').MyList
+
+expecting:
+	>>> MyList.print_sorted(__str__)
