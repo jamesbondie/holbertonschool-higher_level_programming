@@ -2,9 +2,10 @@
 """IS DOCUMENTED"""
 import numpy as np
 
+
 def lazy_matrix_mul(m_a, m_b):
     """IS DOCUMENTED"""
-    
+
     if not (isinstance(m_a, list) and isinstance(m_b, list)):
         raise TypeError("Scalar operands are not allowed, use '*' instead")
 
@@ -34,4 +35,3 @@ def lazy_matrix_mul(m_a, m_b):
                          "3 (dim 1) != 2 (dim 0)")
 
     return np.matmul(m_a, m_b)
-
