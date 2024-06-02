@@ -6,11 +6,9 @@ Rectangle = __import__('9-rectangle').Rectangle
 class Square(Rectangle):
     """IS DOCUMENTED"""
     def __init__(self, size):
-        super().__init__(size, size)
         self.__size = size
-
-    def area(self):
-        return super().area()
+        super().integer_validator("size", self.__size)
+        super().__init__(self.__size, self.__size)
 
     def __str__(self):
         return f"[Square] {self.__size}/{self.__size}"
