@@ -25,10 +25,10 @@ class Circle(Shape):
         self.radius = radius
 
     def area(self):
-        return (self.radius**2) * math.pi
+        return (self.radius**2) * pi
 
     def perimeter(self):
-        return 2 * math.pi * self.radius
+        return 2 * pi * self.radius
 
 
 class Rectangle(Shape):
@@ -45,7 +45,7 @@ class Rectangle(Shape):
         return 2 * (self.width + self.height)
 
 
-def shape_info(obj):
+def shape_info(shape):
     """IS DOCUMENTED"""
-    print("Area:", obj.area())
-    print("Perimeter:", obj.perimeter())
+    print("Area:", shape.area())
+    print("Perimeter:", shape.perimeter())
