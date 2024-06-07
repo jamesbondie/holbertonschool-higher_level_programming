@@ -21,3 +21,7 @@ class Student:
             if i in vars(self):
                 x[i] = vars(self)[i]
         return x
+
+    def reload_from_json(self, json):
+        for i in json:
+            vars(self)[i] = json[i]
