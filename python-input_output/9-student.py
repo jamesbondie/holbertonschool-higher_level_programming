@@ -12,10 +12,5 @@ class Student:
         self.last_name = last_name
         self.age = age
 
-    def to_json(self, attrs=None):
-        x = 0
-        for i in attrs:
-            if type(i) is not str:
-                del attrs[x]
-                x += 1
-        return vars(attrs)
+    def to_json(self):
+        return vars(self)
