@@ -1,0 +1,1 @@
+There are some differences between serialization, marshaling, json, pickle, marshal etc. JSON is more secure for serializing unknown materials, pickle execute it in binary format which can be dangerous. Marshaling take code itself, but serialization does not, actually marshaling itself does serialization.
