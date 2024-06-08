@@ -6,10 +6,12 @@ import json
 
 def convert_csv_to_json(csvname):
     """CONVERTING CSV TO JSON"""
+    data = []
     try:
         with open(csvname, encoding='utf-9', newline='') as csvfile:
             x = csv.DictReader(csvfile)
-            data = [row for row in x]
+            for row in x:
+                data.append(row)
     except Exception:
         return False
 
