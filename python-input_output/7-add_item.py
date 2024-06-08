@@ -7,7 +7,7 @@ load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
 lisst = []
 try:
     load_from_json_file("add_item.json")
-    i = 0
+    i = 1
     while i < len(sys.argv):
         lisst.append(sys.argv[i])
         i += 1
