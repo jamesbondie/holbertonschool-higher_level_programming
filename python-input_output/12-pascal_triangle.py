@@ -6,10 +6,10 @@ def pascal_triangle(n):
     """finally i managed to write it with my dump variables"""
     if n <= 0:
         return []
-    main_list = [[1], [1, 1]]
+    main_list = [[1]]
     i = 1
     new_list = []
-    a = 2
+    a = 1
     k = 0
     while a < n:
         b = 0
