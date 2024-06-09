@@ -1,16 +1,18 @@
 import requests
 import csv
 
-url = 'https://jsonplaceholder.typicode.com/posts'
-requ = requests.get(url)
+
+
 
 
 def fetch_and_print_posts():
-    print("Status code: {}".format(requ.status_code))
+    requ = requests.get('https://jsonplaceholder.typicode.com/posts')
+    print("Status Code: {}".format(requ.status_code))
     for i in requ.json():
         print(i['title'])
 
 def fetch_and_save_posts():
+    requ = requests.get('https://jsonplaceholder.typicode.com/posts')
     with open('posts.csv', 'w', newline='') as csvfile:
         fieldnames = ['id', 'title', 'body']
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
