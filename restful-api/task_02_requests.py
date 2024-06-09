@@ -6,12 +6,11 @@ requ = requests.get(url)
 
 
 def fetch_and_print_posts():
-    print("Status code:", requ.status_code)
+    print("Status code: {}".format(requ.status_code))
     for i in requ.json():
         print(i['title'])
 
 def fetch_and_save_posts():
-    print(requ.status_code)
     with open('posts.csv', 'w', newline='') as csvfile:
         fieldnames = ['id', 'title', 'body']
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
