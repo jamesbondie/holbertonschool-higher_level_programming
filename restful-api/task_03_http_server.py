@@ -28,9 +28,9 @@ class Subclass(http.server.BaseHTTPRequestHandler):
             self.wfile.write(json.dumps(info).encode())
         else:
             self.send_response(404)
-            self.send_header('Content-type', 'text/plain')
+            self.send_header('Content-type', 'text/html')
             self.end_headers()
-            self.wfile.write(bytes("404 not found", "utf-8"))
+            self.wfile.write(b'404 Not Found')
 
 def run():
     server_address = ('', 8000)
