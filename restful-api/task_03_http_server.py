@@ -1,6 +1,7 @@
 import http.server
 import json
 
+
 class Subclass(http.server.BaseHTTPRequestHandler):
     def do_GET(self):
         if self.path == '/':
@@ -29,7 +30,7 @@ class Subclass(http.server.BaseHTTPRequestHandler):
             self.send_response(404)
             self.send_header('Content-type', 'text/plain')
             self.end_headers()
-            self.wfile.write(bytes("Endpoint not found", "utf-8"))
+            self.wfile.write(bytes("404 not found", "utf-8"))
 
 def run():
     server_address = ('', 8000)
