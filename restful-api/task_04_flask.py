@@ -40,8 +40,6 @@ def add_user():
     if data is None or 'username' not in data:
         return jsonify({"error": "Username not provided"}), 400
     username = data['username']
-    if username in users:
-        return jsonify({"error": "Username already exists"}), 400 
     diction = {
         'username': username,
         'name': data.get('name'),
