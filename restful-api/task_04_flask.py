@@ -42,9 +42,14 @@ def add_user():
     username = data['username']
     if username in users:
         return jsonify({"error": "Username already exists"}), 400 
-    diction = {username: data}
-    users.update(diction)
-    return jsonify({"message": "User added"}, diction), 201
+    diction = {
+        'username': username,
+        'name': data.get('name'),
+        'age': data.get('age'),
+        'city': data.get('city')
+    }
+    users[username] = diction
+    return jsonify({"message": "User added", "user": diction}), 201
 
 
 if __name__ == "__main__":
