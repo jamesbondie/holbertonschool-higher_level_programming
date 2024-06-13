@@ -26,7 +26,7 @@ def status():
 
 
 @app.route("/users/<username>")
-def users(username):
+def user(username):
     for i in users.keys():
         if i == username:
             return jsonify(users[i])
