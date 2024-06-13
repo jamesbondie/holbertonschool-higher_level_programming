@@ -37,8 +37,12 @@ def user(username):
 @app.route("/add_user", methods=['GET', 'POST'])
 def add_user():
     data = request.json
-    diction = {}
-    diction.update({data['username']: data})
+    if data is None or 'username' not in data:
+        return jsonify({"error": "Username not provided"}), 400
+    username = data['username']
+    if username in users:
+        return jsonify({"error": "Username already exists"}), 400 
+    diction = {username: data}
     users.update(diction)
     return jsonify({"message": "User added"}, diction), 201
 
