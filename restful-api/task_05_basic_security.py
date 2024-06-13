@@ -20,10 +20,12 @@ users = {
 }
 
 
+
+
 @app.route("/basic-protected", methods="[GET]")
 @auth.login_required
 def basicprotected():
-    return "Basic Auth: Access Granted", 200
+    return "Basic Auth: Access Granted"
 
 @app.route("/login", methods="[POST]")
 def login():
