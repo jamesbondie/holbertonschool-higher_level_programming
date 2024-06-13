@@ -40,7 +40,7 @@ def add_user():
     diction = {}
     diction.update({data['username']: data})
     users.update(diction)
-    return jsonify({"message": "User added"}, diction)
+    return jsonify({"message": "User added"}, diction), 201
 
 
 if __name__ == "__main__":
