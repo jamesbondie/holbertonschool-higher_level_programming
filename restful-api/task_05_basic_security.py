@@ -1,6 +1,6 @@
 from flask import Flask
-from flask import request
 from flask import jsonify
+from flask import request
 from flask_httpauth import HTTPBasicAuth
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_jwt_extended import create_access_token
@@ -9,8 +9,8 @@ from flask_jwt_extended import jwt_required
 from flask_jwt_extended import JWTManager
 
 app = Flask(__name__)
-auth = HTTPBasicAuth()
 app.config["JWT_SECRET_KEY"] = "menimgizlikeyim"
+auth = HTTPBasicAuth()
 jwt = JWTManager(app)
 
 
@@ -35,15 +35,15 @@ def basicprotected():
 def login():
     username = request.json.get("username", None)
     password = request.json.get("password", None)
-    if username in users and check_password_hash(users.get(username)['password'], password):
+    if users[username] and check_password_hash(users.get(username)['password'], password):
         access_token = create_access_token(identity={'username': username, 'role': users[username]['role']})
         return jsonify(access_token=access_token)
-    return jsonify({"error": "Unauthorized"}), 401
+    return jsonify({"error": "Invalid credentials"}), 401
 
 @app.route('/jwt-protected', methods=["GET"])
 @jwt_required()
 def jwt_protected():
-    return "JWT Auth: Access Granted", 200
+    return "JWT Auth: Access Granted"
 
 @app.route('/admin-only', methods=["GET"])
 @jwt_required()
@@ -51,7 +51,7 @@ def admin_only():
     current_user = get_jwt_identity()
     if current_user['role'] != 'admin':
         return jsonify({"error": "Admin access required"}), 403
-    return jsonify("Admin Access: Granted"), 200
+    return "Admin Access: Granted"
 
 
 
