@@ -39,7 +39,7 @@ def add_user():
     data = request.json
     if data is None:
         return jsonify({"error": "Data not provided"}), 400
-    if 'username' not in data:
+    if data['username'] is None:
         return jsonify({"error": "Username not provided"}), 400
     username = data['username']
     diction = {
