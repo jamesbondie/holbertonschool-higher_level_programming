@@ -39,6 +39,7 @@ def add_user():
     data = request.json
     diction = {}
     diction.update({data['username']: data})
+    users.update(diction)
     return jsonify({"message": "User added"}, diction)
 
 
