@@ -37,7 +37,9 @@ def user(username):
 @app.route("/add_user", methods=['GET', 'POST'])
 def add_user():
     data = request.json
-    if data is None or 'username' not in data:
+    if data is None:
+        return jsonify({"error": "Data not provided"}), 400
+    if 'username' not in data:
         return jsonify({"error": "Username not provided"}), 400
     username = data['username']
     diction = {
