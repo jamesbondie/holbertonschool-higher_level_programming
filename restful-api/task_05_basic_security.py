@@ -22,12 +22,12 @@ users = {
 
 
 
-@app.route("/basic-protected", methods="[GET]")
+@app.route("/basic-protected", methods=["GET"])
 @auth.login_required
 def basicprotected():
     return "Basic Auth: Access Granted"
 
-@app.route("/login", methods="[POST]")
+@app.route("/login", methods=["POST"])
 def login():
     username = request.json.get("username", None)
     password = request.json.get("password", None)
@@ -36,12 +36,12 @@ def login():
         return jsonify(username)
     return "Unauthorized", 401
 
-@app.route('/jwt-protected', methods="[GET]")
+@app.route('/jwt-protected', methods=["GET"])
 @jwt_required()
 def jwt_protected():
     return "JWT Auth: Access Granted", 200
 
-@app.route('/admin-only', methods="[GET]")
+@app.route('/admin-only', methods=["GET"])
 @jwt_required()
 def admin_only():
     current_user = get_jwt_identity()
