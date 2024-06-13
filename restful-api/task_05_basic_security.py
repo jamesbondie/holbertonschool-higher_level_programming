@@ -23,7 +23,7 @@ users = {
 @auth.verify_password
 def verify_password(username, password):
     if users[username] and check_password_hash(users[username]['password'], password):
-        return username
+        return users[username]
     return None
 
 @app.route("/basic-protected", methods=["GET"])
@@ -36,9 +36,9 @@ def login():
     username = request.json.get("username", None)
     password = request.json.get("password", None)
     if username in users and check_password_hash(users.get(username)['password'], password):
-        access_token = create_access_token(identity=username)
-        return jsonify(username)
-    return "Unauthorized", 401
+        access_token = create_access_token(identity={'username': username, 'role': users[username]['role']})
+        return jsonify(access_token=access_token)
+    return jsonify({"error": "Unauthorized"}), 401
 
 @app.route('/jwt-protected', methods=["GET"])
 @jwt_required()
