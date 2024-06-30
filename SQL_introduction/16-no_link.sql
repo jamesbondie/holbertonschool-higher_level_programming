@@ -1,2 +1,2 @@
 -- no link
-select score, name from second_table name is not NULL order by score desc;
+SELECT score, name FROM second_table WHERE name IS NOT NULL ORDER BY score DESC;
