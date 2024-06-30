@@ -1,35 +1,25 @@
 #!/usr/bin/python3
 """
-Module for adding Louisiana.
+lists all State objects from the database hbtn_0e_6_usa
 """
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
+import MySQLdb
 from sys import argv
-
+from sqlalchemy import (create_engine)
 from model_state import Base, State
+from sqlalchemy.orm import Session
+from sqlalchemy import update
 
-# Run only executed
+
 if __name__ == "__main__":
-
-    # Engine creation with mysql and mysqldb DBAPI
-    engine = create_engine("mysql+mysqldb://{}:{}@localhost:3306/{}"
-                           .format(argv[1], argv[2], argv[3]))
-
-    # Creating all classes in DB
+    engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format
+                           (argv[1], argv[2], argv[3]), pool_pre_ping=True)
     Base.metadata.create_all(engine)
 
-    # Creating Session and its instance
-    Session = sessionmaker(bind=engine)
-    session = Session()
-
-    # Creating new city instance and adding it do db
-    s = State(name='Louisiana')
-    session.add(s)
+    session = Session(engine)
+    new = State(name="Louisiana")
+    session.add(new)
     session.commit()
-
-    # Printing the new State id
-    print(s.id)
-
-    # Closing the session
-    if session:
-        session.close()
+    for state in session.query(State).filter_by(name="Louisiana")\
+                                     .order_by(State.id).all():
+        print("{}".format(state.id))
+    session.close()

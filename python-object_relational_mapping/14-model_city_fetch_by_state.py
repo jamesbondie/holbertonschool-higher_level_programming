@@ -1,37 +1,21 @@
 #!/usr/bin/python3
-"""Module for fetching city by state"""
-
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
-from model_city import Base, City
-from model_state import State
+"""
+prints all City objects from the database hbtn_0e_14_usa
+"""
 from sys import argv
+from sqlalchemy import (create_engine)
+from model_state import Base, State
+from model_city import City
+from sqlalchemy.orm import Session
 
-# Run only when executed
+
 if __name__ == "__main__":
-
-    # Engine creation with mysql and mysqldb DBAPI
-    engine = create_engine("mysql+mysqldb://{}:{}@localhost:3306/{}"
-                           .format(argv[1], argv[2], argv[3]))
-
-    # Creating all classes in DB
+    engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format
+                           (argv[1], argv[2], argv[3]), pool_pre_ping=True)
     Base.metadata.create_all(engine)
 
-    # Creating Session and its instance
-    Session = sessionmaker(bind=engine)
-    session = Session()
-
-    # The Query
-    query = (
-        session.query(State, City)
-        .join(City, State.id == City.state_id)
-        .order_by(City.id)
-        .all())
-
-    # Printing the result
-    for state, city in query:
+    session = Session(engine)
+    for city, state in session.query(City, State).\
+            filter(City.state_id == State.id).order_by(City.id).all():
         print("{}: ({}) {}".format(state.name, city.id, city.name))
-
-    # Closing the session
-    if session:
-        session.close()
+    session.close()
