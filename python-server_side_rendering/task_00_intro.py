@@ -10,19 +10,19 @@ def generate_invitations(template, attendees):
             if isinstance(i, dict):
                 pass
             else:
-                logging.error("Invalid input type")
-                sys.exit(1)
+                print("Invalid input type")
+                return
     else:
-        logging.error("Invalid input type")
-        sys.exit(1)
+        print("Invalid input type")
+        return
 
     if not template:
-        logging.error("Template is empty, no output files generated.")
-        sys.exit(1)
+        print("Template is empty, no output files generated.")
+        return
 
     if not attendees:
-        logging.error("No data provided, no output files generated.")
-        sys.exit(1)
+        print("No data provided, no output files generated.")
+        return
         
     index = 1
     for james in attendees:
