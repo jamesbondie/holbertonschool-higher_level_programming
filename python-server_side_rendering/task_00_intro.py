@@ -28,7 +28,7 @@ def generate_invitations(template, attendees):
     for james in attendees:
         for key in james.keys():
             if james[key] is None:
-                james[key] = "N/A"
+                james[key] = "{}: N/A".format(key)
             
 
         processed = template.format(**james)
