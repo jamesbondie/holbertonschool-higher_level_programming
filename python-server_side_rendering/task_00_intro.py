@@ -27,9 +27,10 @@ def generate_invitations(template, attendees):
     required_keys = ['name', 'event_title', 'event_date', 'event_location']  
 
     index = 1
+
     for james in attendees:
         for key in required_keys:
-            if key not in james and james[key] is None:
+            if key not in james or james[key] is None:
                 james[key] = "N/A"
             
 
