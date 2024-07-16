@@ -23,12 +23,14 @@ def generate_invitations(template, attendees):
     if not attendees:
         print("No data provided, no output files generated.")
         return
-        
+    
+    required_keys = ['name', 'event_title', 'event_date', 'event_location']  
+
     index = 1
     for james in attendees:
-        for key in james.keys():
-            if james[key] is None:
-                james[key] = "{}: N/A".format(key)
+        for key in required_keys:
+            if key in james and james[key] is None:
+                james[key] = "N/A"
             
 
         processed = template.format(**james)
