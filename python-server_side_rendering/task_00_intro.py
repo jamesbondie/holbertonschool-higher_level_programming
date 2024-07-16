@@ -1,8 +1,22 @@
 import logging
 import sys
 from jinja2 import Template
+import os
 
 def generate_invitations(template, attendees):
+
+    if os.path.exists('/template.txt'):
+        file_size = os.path.getsize('/template.txt')
+
+        if file_size == 0:
+            logging.error("Template is empty, no output files generated.")
+            sys.exit(1)
+        else:
+            pass
+    else:
+        logging.error("File does not exist.")
+        sys.exit(1)
+
     if isinstance(template, str) and isinstance(attendees, list):
         
         for i in attendees:
@@ -13,10 +27,6 @@ def generate_invitations(template, attendees):
                 sys.exit(1)
     else:
         logging.error("Invalid input type")
-        sys.exit(1)
-
-    if template is None:
-        logging.error("Template is empty, no output files generated.")
         sys.exit(1)
 
     if attendees is None:
