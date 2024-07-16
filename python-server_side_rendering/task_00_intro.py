@@ -14,8 +14,7 @@ def generate_invitations(template, attendees):
         else:
             pass
     else:
-        logging.error("File does not exist.")
-        sys.exit(1)
+        pass
 
     if isinstance(template, str) and isinstance(attendees, list):
         
