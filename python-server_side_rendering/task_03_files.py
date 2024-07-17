@@ -23,6 +23,8 @@ def products():
     
     if id:
         products = [product for product in products if product.get('id') == id]
+        if not products:
+            print("Product not found")
     else:
         products = products
 
