@@ -19,12 +19,12 @@ def products():
             for lines in csvFile:
                 products.append(lines)
     else:
-        return "Wrong source"
+        return render_template('product_display.html', error = "Wrong source")
     
     if id:
         products = [product for product in products if product.get('id') == id]
         if not products:
-            print("Product not found")
+            return render_template('product_display.html', error = "Product not found")
     else:
         products = products
 
