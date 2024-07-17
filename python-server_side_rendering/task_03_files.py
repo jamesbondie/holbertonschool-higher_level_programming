@@ -4,14 +4,18 @@ import json
 
 app = Flask(__name__)
 
+def jsonfile(file_path):
+    with open(file_path, 'r') as file:
+        return json.load(file)
+
+
 @app.route('/products')
 def products():
     source = request.args.get('source')
     id = request.args.get('id')
 
     if source == 'json':
-        with open('products.json', 'r') as f:
-            products = json.load(f) 
+        products = jsonfile('products.json')
     elif source == 'csv':
         products = []
         with open('products.csv', 'r') as f:
@@ -19,12 +23,12 @@ def products():
             for lines in csvFile:
                 products.append(lines)
     else:
-        return render_template('product_display.html', error = "Wrong source")
+        return "Wrong source"
     
     if id:
         products = [product for product in products if product.get('id') == id]
         if not products:
-            return render_template('product_display.html', error = "Product not found")
+            return "Product not found"
     else:
         products = products
 
