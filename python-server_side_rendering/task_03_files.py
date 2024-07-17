@@ -4,8 +4,8 @@ import json
 
 app = Flask(__name__)
 
-@app.route('/sourcess')
-def sources():
+@app.route('/products')
+def products():
     source = request.args.get('source')
     id = request.args.get('id')
 
