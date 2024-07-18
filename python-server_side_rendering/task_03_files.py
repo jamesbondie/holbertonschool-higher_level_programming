@@ -12,7 +12,7 @@ def jsonfile(file_path):
 @app.route('/products')
 def products():
     source = request.args.get('source')
-    id = request.args.get('id')
+    id = request.args.get('id', type=int)
 
     if source == 'json':
         products = jsonfile('products.json')
@@ -21,6 +21,8 @@ def products():
         with open('products.csv', 'r') as f:
             csvFile = csv.DictReader(f)
             for lines in csvFile:
+                lines['id'] = int(lines['id'])
+                lines['price'] = float(lines['price'])
                 products.append(lines)
     else:
         return "Wrong source"
